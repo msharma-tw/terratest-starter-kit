@@ -1,4 +1,3 @@
-
 name: semgrep-rules-test
 
 on:
@@ -10,19 +9,19 @@ jobs:
     runs-on: ubuntu-latest
     name: Semgrep Run
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
-      with:
-        python-version: 3.9.2
-    - name: Install latest semgrep
-      shell: bash
-      run: |
-        pip3 install semgrep
-    - name: Display Semgrep version
-      shell: bash
-      run: |
-        semgrep --version
-    - name: Run benchmarks
-      shell: bash
-      run: |
-        python3 semgrep --config "p/terraform"
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.9.2
+      - name: Install latest semgrep
+        shell: bash
+        run: |
+          pip3 install semgrep
+      - name: Display Semgrep version
+        shell: bash
+        run: |
+          semgrep --version
+      - name: Run benchmarks
+        shell: bash
+        run: |
+          semgrep --config "p/terraform"
